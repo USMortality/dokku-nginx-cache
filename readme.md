@@ -4,15 +4,15 @@ Easily enable the NGINX cache.
 
 ### Install
 
-```
+```shell
 dokku plugin:install https://github.com/kvandake/dokku-nginx-cache.git nginx-cache
 ```
 
 To validate if it is working you can simply check the `X-Cache-Status`. You can
 that easily with `curl` from the command line:
 
-```
-$ curl -I http://YOURAMAZINAPP.DOMAIN.EXT/
+```shell
+curl -I http://YOURAMAZINAPP.DOMAIN.EXT/
 ```
 
 You can validate it by running it multiple times, and after the first time it
@@ -26,14 +26,14 @@ X-Cache-Status: HIT
 
 Enable nginx caching
 
-```
-$ dokku nginx:cache:enable MYAPP
+```shell
+dokku nginx-cache:enable MYAPP
 ```
 
 Disable nginx cache for your app
 
-```
-$ dokku nginx:cache:disable MYAPP
+```shell
+dokku nginx-cache:disable MYAPP
 ```
 
 ### Configuration
