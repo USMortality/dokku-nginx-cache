@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
+set -eo pipefail
+[[ $DOKKU_TRACE ]] && set -x
 
 APP=$1
 
@@ -17,6 +18,6 @@ function add_setting_location {
 }
 
 add_setting_location "proxy_cache_key \$scheme\$request_method\$host\$request_uri;"
-
-add_setting_location "proxy_cache dokku;"
 add_setting_location "proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;"
+add_setting_location "proxy_cache_valid any 365d;"
+add_setting_location "proxy_cache dokku;"
